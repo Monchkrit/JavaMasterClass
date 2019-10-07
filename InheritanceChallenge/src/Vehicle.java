@@ -1,35 +1,42 @@
 public class Vehicle {
 
-	private int steer;	
-	private int moving;
+	private String name;
+	private String size;
+	private int currentVelocity;
+	private int currentDirection;
 	
 	public Vehicle() {
-		this(0, 0);
+		this("Default", "Default");
 	}
-	public Vehicle(int steer) {
-		this(steer, 0);
+	public Vehicle(String name) {
+		this(name, "Default");
 	}
-	public Vehicle(int steer, int moving) {
-		this.steer = steer;
-		this.moving = moving;
+	public Vehicle(String name, String size) {
+		this.name = name;
+		this.size = size;
+		this.currentVelocity = 0;
+		this.currentDirection = 0;
+	}
+	public void steer(int direction) {
+		this.currentDirection += direction;
+		System.out.println("Vehicle.steer(): Steering at "+currentDirection+" degrees");
+	}
+	public void move(int velocity, int direction) {
+		currentVelocity = velocity;
+		currentDirection = direction;
+		System.out.println("Moving at "+currentVelocity+" in direction "+direction);
+	}
+	public String getName() {
+		return name;
+	}
+	public String getSize() {
+		return size;
+	}
+	public int getCurrentVelocity() {
+		return currentVelocity;
+	}
+	public int getCurrentDirection() {
+		return currentDirection;
 	}
 	
-	public void turn(int steer) {
-		switch(steer) {
-		case -1:
-			System.out.println("You are turning left.");
-			break;
-		case 0:
-			System.out.println("You are going straight.");
-			break;
-		case 1:
-			System.out.println("You are turning right.");
-			break;
-		default:
-			break;
-		}
-	}
-	public void moving(int speed) {
-		System.out.println("The vehicle is moving "+speed);
-	}
 }
