@@ -2,8 +2,11 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Car car = new Car();
-		System.out.println("The car size is "+car.getSize());
+		Mercedes mercedes = new Mercedes("E300", "Medium");
+		mercedes.steer(45);
+		mercedes.accelerate(30);
+		mercedes.accelerate(20);
+		mercedes.accelerate(-45);
 	}
 
 }

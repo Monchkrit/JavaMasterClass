@@ -10,29 +10,36 @@ public class Car extends Vehicle {
 	private int currentGear;
 
 	public Car() {
-		this("Default", "Default", 0, 4, 4, 4, 1);
+		this("Default", "Default", 4, 4, 4, 1, false, -1);
 	}
 
 	public Car(String name, String size) {
-		this(name, size, 0, 4, 4, 4, 0);		
+		this(name, size, 4, 4, 4, 0, false, -1);		
 	}
 
-	public Car(String name, String size, int gear, int tires, int engine, int doors, int trunk) {
+	public Car(String name, String size, int tires, int engine, int doors, 
+			int trunk, boolean isManual, int gears) {
 		super(name, size);
 		
-		this.gear = gear;
+		this.gears = gears;
 		this.tires = tires;
 		this.engine = engine;
 		this.doors = doors;
 		this.trunk = trunk;
+		this.isManual = isManual;
+		this.currentGear = 0;
+	}
+	
+	public boolean getIsManual() {
+		return isManual;
+	}
+	
+	public int getGears() {
+		return gears;
 	}
 
-	public int getGear() {
-		return gear;
-	}
-
-	public void setGear(int gear) {
-		this.gear = gear;
+	public int getCurrentGear() {
+		return currentGear;
 	}
 
 	public int getTires() {
@@ -66,32 +73,36 @@ public class Car extends Vehicle {
 	public void setTrunk(int trunk) {
 		this.trunk = trunk;
 	}
-	public void changeGears(int gear) {
-		switch(gear) {
+	public void changeGear(int shift) {
+		switch(shift) {
 		case -1:
 			System.out.println("You are in reverse");
-			this.gear = -1;
+			this.currentGear = -1;
 			break;
 		case 0:
 			System.out.println("You are in neutral");
-			this.gear = 0;
+			this.currentGear = 0;
 			break;
 		case 1:
 			System.out.println("You are in first gear");
-			this.gear = 1;
+			this.currentGear = 1;
 			break;
 		case 2:
 			System.out.println("You are in second gear");
-			this.gear = 2;
+			this.currentGear = 2;
 			break;
 		case 3:
 			System.out.println("You are in third gear");
-			this.gear = 3;
+			this.currentGear = 3;
 			break;
 		case 4:
 			System.out.println("You are in fourth gear");
-			this.gear = 4;
+			this.currentGear = 4;
 			break;
 		}
 	}
+	public void changeVelocity(int speed, int direction) {
+		System.out.println("Car.changeVelocity() : Velocity "+speed+" direction"+direction);
+		move(speed, direction);
+	}	
 }
