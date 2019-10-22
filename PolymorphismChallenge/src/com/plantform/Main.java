@@ -42,12 +42,15 @@ class Volkswagon extends Car {
 		super("Volkswagon");		
 	}
 	
+	@Override
 	public void startEngine() {
 		System.out.println("The volkswagon engine is started.");
 	}
+@Override	
 	public void accelerate() {
 		System.out.println("The volkswagon speed increased!");
 	}
+@Override	
 	public void slow() {
 		System.out.println("The volkswagon slowed to a stop.");
 	}
@@ -58,12 +61,15 @@ class Dodge extends Car {
 		super("Dodge");		
 	}
 	
+	@Override
 	public void startEngine() {
 		System.out.println("The dodge engine is started.");
 	}
+@Override	
 	public void accelerate() {
 		System.out.println("The dodge speed increased!");
 	}
+@Override	
 	public void slow() {
 		System.out.println("The dodge slowed to a stop.");
 	}
@@ -74,15 +80,17 @@ class Honda extends Car {
 		super("Honda");		
 	}
 	
+	@Override
 	public void startEngine() {
 		System.out.println("The honda engine is started.");
 	}
+	@Override
 	public void accelerate() {
 		System.out.println("The honda speed increased!");
 	}
-	public void slow() {
-		System.out.println("The honda slowed to a stop.");
-	}
+//	public void slow() {
+//		System.out.println("The honda slowed to a stop.");
+//	}
 }
 
 public class Main {
