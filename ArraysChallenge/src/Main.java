@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -8,10 +9,7 @@ public class Main {
 
 		int[] intArray = getIntegers();
 		int[] sortedArray = sortArray(intArray);
-		System.out.println("sortedArray length is "+sortedArray.length);
-		for(int i = 0; i < sortedArray.length; i++) {
-			System.out.println("The number in spot "+i+" is "+sortedArray[i]);
-		}
+		printArray(sortedArray);
 	}
 	
 	public static int[] getIntegers() {
@@ -25,7 +23,7 @@ public class Main {
 	}
 	
 	public static int[] sortArray(int array[]) {
-		int[] sortedArray = array;
+		int[] sortedArray = Arrays.copyOf(array, array.length);
 		int low = 0;
 		
 		for (int i = 0; i < sortedArray.length; i++) {
@@ -35,9 +33,14 @@ public class Main {
 					sortedArray[j] = sortedArray[i];
 					sortedArray[i] = low;
 				}
-			}			
+			}
 		}
 		return sortedArray;
 	}
-
+	
+	public static void printArray(int[] array) {
+		for(int i = 0; i < array.length; i++) {
+			System.out.println("Number at position "+i+" is "+array[i]);
+		}
+	}
 }
